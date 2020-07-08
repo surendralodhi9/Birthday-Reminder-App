@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Birthday Reminders</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today_view">Today\'s Birthday</string>
+    <string name="display_view">Display All Birthday</string>
+    <string name="add_views">Add New Birthday</string>
+    <string name="update_view">Update Birthday</string>
+    <string name="delete_view">Delete Birthday</string>
+    <string name="Add_fragment_View">Add New Birthday</string>
+    <string name="dob_text_string">Date of birth(DD/MM)</string>
+    <string name="email_text_string">Enter email</string>
+    <string name="mobile_text_string">Enter mobile number</string>
+    <string name="name_text_string">Enter the name</string>
+    <string name="btn_save_string">Save</string>
+    <string name="Update_fragment">Update Birthday</string>
+    <string name="btn_update_string">Update</string>
+    <string name="Delete_fragment">Delete Birthday</string>
+    <string name="delete_btn_string">DELETE</string>
+</resources>
