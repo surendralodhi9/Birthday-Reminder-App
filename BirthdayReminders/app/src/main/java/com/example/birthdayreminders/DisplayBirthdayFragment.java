@@ -32,7 +32,6 @@ public class DisplayBirthdayFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +58,7 @@ public class DisplayBirthdayFragment extends Fragment {
         cur=cur.substring(0,5);
         cur=reverseString(cur);
 
+        System.out.println(cur);
         String info="";
         List<Birthday> BeforeToday=new ArrayList<>();
         List<Birthday> AfterToday=new ArrayList<>();
@@ -101,9 +101,6 @@ public class DisplayBirthdayFragment extends Fragment {
             info = info + "Name: " + birthday.Name + "\nMobile: " +birthday.Mobile + "\nEmail: " + birthday.Email + "\nDOB: " + birthday.Dob;
 
         }
-
-
-
 
         if(info.length()==0)
             info="No birthday entry found... Please add ";
