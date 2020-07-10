@@ -56,7 +56,7 @@ public class DisplayBirthdayFragment extends Fragment {
         LocalDateTime now = LocalDateTime.now();
         String cur=dtf.format(now);
         cur=cur.substring(0,5);
-        cur=reverseString(cur);
+        cur=mmddString(cur);
 
         System.out.println(cur);
         String info="";
@@ -70,7 +70,7 @@ public class DisplayBirthdayFragment extends Fragment {
             String email = cursor.getString(cursor.getColumnIndex(BirthdayContract.BirthdayEntry.email));
             String dob = cursor.getString(cursor.getColumnIndex(BirthdayContract.BirthdayEntry.dob));
 
-            dob=reverseString(dob);
+            dob=mmddString(dob);
             Birthday birthday = new Birthday(name, mobile, email, dob);
 
             if(cur.compareToIgnoreCase(dob)<=0)
@@ -85,7 +85,7 @@ public class DisplayBirthdayFragment extends Fragment {
         {
 
             Birthday birthday=AfterToday.get(i);
-            birthday.Dob=reverseString(birthday.Dob);
+            birthday.Dob=mmddString(birthday.Dob);
             if (info.length() > 0)
                 info = info + "\n\n";
             info = info + "Name: " + birthday.Name + "\nMobile: " +birthday.Mobile + "\nEmail: " + birthday.Email + "\nDOB: " + birthday.Dob;
@@ -95,7 +95,7 @@ public class DisplayBirthdayFragment extends Fragment {
         {
 
             Birthday birthday=BeforeToday.get(i);
-            birthday.Dob=reverseString(birthday.Dob);
+            birthday.Dob=mmddString(birthday.Dob);
             if (info.length() > 0)
                 info = info + "\n\n";
             info = info + "Name: " + birthday.Name + "\nMobile: " +birthday.Mobile + "\nEmail: " + birthday.Email + "\nDOB: " + birthday.Dob;
@@ -110,11 +110,9 @@ public class DisplayBirthdayFragment extends Fragment {
 
 
     }
-    public String  reverseString(String str)
+    public String  mmddString(String str)
     {
-        String res="";
-        for(int i=str.length()-1;i>=0;i--)
-            res=res+str.charAt(i);
+        String res=str.substring(3)+"/"+str.substring(0,2);
         return res;
     }
 

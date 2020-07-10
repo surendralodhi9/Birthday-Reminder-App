@@ -1,6 +1,5 @@
 package com.example.birthdayreminders;
 
-
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -47,10 +46,10 @@ public class AddBirthdayFragment extends Fragment {
             public void onClick(View v) {
 
 
-                String Name=name.getText().toString();
-                String Email=email.getText().toString();
-                String  Mobile=mobile.getText().toString();
-                String Dob=dob.getText().toString();
+                String Name=name.getText().toString().trim();
+                String Email=email.getText().toString().trim();
+                String  Mobile=mobile.getText().toString().trim();
+                String Dob=dob.getText().toString().trim();
 
                 if(Mobile.length()==0)
                 {
@@ -58,6 +57,13 @@ public class AddBirthdayFragment extends Fragment {
                     Toast.makeText(getActivity(),"Please enter the mobile number",Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if(!isValidDate(Dob))
+                {
+                    Toast.makeText(getActivity(),"Please enter the DOB in correct format",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 DbHelper dbHelper=new DbHelper(getActivity());
 
                 SQLiteDatabase sqLiteDatabase=dbHelper.getWritableDatabase();
@@ -75,6 +81,31 @@ public class AddBirthdayFragment extends Fragment {
             }
         });
         return view;
+    }
+    public boolean isValidDate(String str)
+    {
+        if(str.length()>5||str.length()<5||str.charAt(2)!='/')
+            return false;
+
+        for(int i=0;i<str.length();i++)
+        {
+            if(i==2)
+                continue;
+            if(str.charAt(i)<'0'|| str.charAt(i)>'9')
+                return false;
+        }
+        int dd=Integer.parseInt(str.substring(0,2));
+        int mm=Integer.parseInt(str.substring(3));
+        if(mm<1||mm>12)
+            return false;
+        if(mm==4||mm==6||mm==9||mm==11)
+        {
+            if(dd>30)
+                return false;
+        }
+        if(dd<1||dd>31)
+            return false;
+        return true;
     }
 
 }
