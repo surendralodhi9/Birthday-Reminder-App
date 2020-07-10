@@ -4,7 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="today_view">Today\'s Birthday</string>
-    <string name="display_view">Display All Birthday</string>
+    <string name="display_view">Display Birthdays</string>
     <string name="add_views">Add New Birthday</string>
     <string name="update_view">Update Birthday</string>
     <string name="delete_view">Delete Birthday</string>

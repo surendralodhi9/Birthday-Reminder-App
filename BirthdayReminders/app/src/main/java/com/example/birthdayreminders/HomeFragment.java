@@ -55,8 +55,9 @@ public class HomeFragment extends  Fragment implements View.OnClickListener{
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String cur=dtf.format(now);
-        cur=cur.substring(0,5);
+        cur=cur.substring(0,10);
         dateDisplay=view.findViewById(R.id.todayDateView);
+
         dateDisplay.setText(dateDisplay.getText()+cur);
         btnAdd=view.findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(this);

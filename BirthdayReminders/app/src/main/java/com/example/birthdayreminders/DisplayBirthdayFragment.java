@@ -104,6 +104,7 @@ public class DisplayBirthdayFragment extends Fragment {
 
         if(info.length()==0)
             info="No birthday entry found... Please add ";
+        info=info+"\n";
         Text_display.setText(info);
         dbHelper.close();
 
